@@ -1,17 +1,10 @@
 import { create } from 'zustand';
-
-interface User {
-  id: string;
-  email: string;
-  username: string;
-  xp: number;
-  is_admin: boolean;
-}
+import { UserProfile } from './types';
 
 interface AuthStore {
-  user: User | null;
+  user: UserProfile | null;
   loading: boolean;
-  setUser: (user: User | null) => void;
+  setUser: (user: UserProfile | null) => void;
   setLoading: (loading: boolean) => void;
 }
 
@@ -30,4 +23,16 @@ interface SearchStore {
 export const useSearchStore = create<SearchStore>((set) => ({
   query: '',
   setQuery: (query) => set({ query }),
+}));
+
+interface UIStore {
+  sidebarOpen: boolean;
+  setSidebarOpen: (open: boolean) => void;
+  toggleSidebar: () => void;
+}
+
+export const useUIStore = create<UIStore>((set) => ({
+  sidebarOpen: false,
+  setSidebarOpen: (open) => set({ sidebarOpen: open }),
+  toggleSidebar: () => set((state) => ({ sidebarOpen: !state.sidebarOpen })),
 }));

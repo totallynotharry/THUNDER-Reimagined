@@ -1,3 +1,16 @@
+export interface UserProfile {
+  id: string;
+  email: string;
+  username: string;
+  xp: number;
+  is_admin: boolean;
+  avatar_url?: string;
+  bio?: string;
+  rank?: number;
+  created_at?: string;
+  updated_at?: string;
+}
+
 export interface Game {
   id: string;
   title: string;
@@ -18,13 +31,6 @@ export interface Quest {
   created_at: string;
 }
 
-export interface UserQuest {
-  id: string;
-  user_id: string;
-  quest_id: string;
-  completed_at: string;
-}
-
 export interface Message {
   id: string;
   sender_id: string;
@@ -32,18 +38,11 @@ export interface Message {
   content: string;
   read: boolean;
   created_at: string;
-  sender?: { username: string };
-  receiver?: { username: string };
 }
 
-export interface UserProfile {
+export interface UserQuest {
   id: string;
-  email: string;
-  username: string;
-  xp: number;
-  rank: number;
-  is_admin: boolean;
-  avatar_url?: string;
-  bio?: string;
-  created_at: string;
+  user_id: string;
+  quest_id: string;
+  completed_at: string;
 }
