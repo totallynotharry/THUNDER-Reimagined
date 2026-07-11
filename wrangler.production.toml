@@ -1,0 +1,17 @@
+[build]
+command = "npm run build"
+publishDirectory = ".next"
+
+[[redirects]]
+from = "/api/*"
+status = 200
+to = "/api/:splat"
+
+[[redirects]]
+from = "/*"
+status = 404
+to = "/404.html"
+
+[env.production]
+route = "https://thunder-unblocked.pages.dev/*"
+zone_id = "your_zone_id"
